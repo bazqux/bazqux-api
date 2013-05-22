@@ -7,7 +7,7 @@ The only thing you need to support BazQux Reader is to change
 `google.com` to `bazqux.com` in your code.
 
 To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
-and go to Options (top-right corner) => Mobile login.
+and go to the Options (top-right corner) => Mobile login.
 
 Main API endpoints:
 * https://www.bazqux.com/accounts/ClientLogin
