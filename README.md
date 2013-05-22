@@ -145,7 +145,15 @@ https://www.bazqux.com/reader/api/0/unread-count ([?output=json](https://www.baz
 
 https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www.bazqux.com/reader/api/0/stream/items/ids?output=json))
 
-https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/ids?output=atom))
+/user/-/state/com.google/reading-list
+
+/user/-/label/...
+
+/user/-/feed/...
+
+xt=/user/-/state/com.google/read
+
+https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
 
 https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
 
