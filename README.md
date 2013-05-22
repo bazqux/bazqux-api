@@ -14,7 +14,7 @@ Main API endpoints:
 * https://www.bazqux.com/reader/api/0
 * https://www.bazqux.com/reader/atom
 
-Most of the API is supported. The only two things missing are
+Most parts of the Google Reader API are supported. The only two things missing are
 starring and tagging (API calls just returns OK but no starred items
 or tags are created).
 
