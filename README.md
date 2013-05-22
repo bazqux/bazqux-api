@@ -120,7 +120,8 @@ Always contain `htmlUrl` not depending on favicons setting.
 
 ### Adding subscription
 
-https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com ([?output=xml](https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com))
+https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com
+([?output=xml](https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com&output=xml))
 
 BazQux Reader currently doesn't differ GET/POST and query string or form parameters. But you must use POST and append T=token 
 to be future proof.
