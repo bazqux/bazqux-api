@@ -10,11 +10,10 @@ To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to Options (top-right corner) => Mobile login.
 
 Main API endpoints:
-```
-    https://www.bazqux.com/accounts/ClientLogin
-    https://www.bazqux.com/reader/api/0
-    https://www.bazqux.com/reader/atom
-```
+* https://www.bazqux.com/accounts/ClientLogin
+* https://www.bazqux.com/reader/api/0
+* https://www.bazqux.com/reader/atom
+
 Most of the API is supported. The only two things missing are
 starring and tagging (API calls just returns OK but no starred items
 or tags are created).
@@ -38,7 +37,11 @@ Auth=cltoken
 Where `cltoken` is a random session token that you must pass to all other API calls in
 `Authorization` header in form `GoogleLogin auth=cltoken`.
 
+You can also test most of API calls right in your browser when you signed in BazQux Reader.
+
 ### Ping
+
+https://www.bazqux.com/reader/ping
 
 ```
 > curl https://www.bazqux.com/reader/ping
@@ -50,6 +53,8 @@ OK
 
 ### Token
 
+https://www.bazqux.com/reader/api/0/token
+
 It's not used currently but maybe used later the same way Google Reader uses it 
 (expire in 30 minutes, with "x-reader-google-bad-token: true" header set).
 
@@ -60,6 +65,8 @@ Token123
 
 ### Directory search
 
+https://www.bazqux.com/reader/directory/search
+
 ```
 > curl https://www.bazqux.com/reader/directory/search?q=foo -H "Authorization: GoogleLogin auth=cltoken"
 Search is not yet supported
@@ -67,8 +74,10 @@ Search is not yet supported
 
 ### User info
 
+https://www.bazqux.com/reader/api/0/user-info
+
 ```
-> curl <a href="https://www.bazqux.com/reader/api/0/user-info" rel=nofollow>https://www.bazqux.com/reader/api/0/user-info</a> -H "Authorization: GoogleLogin auth=cltoken"
+> curl https://www.bazqux.com/reader/api/0/user-info -H "Authorization: GoogleLogin auth=cltoken"
 {"userId":"01234567890123456789","userName":"realuser","userProfileId":"01234567890123456789","userEmail":"realuser",
 "isBloggerUser":true,"signupTimeSec":1234567890,"isMultiLoginEnabled":true}
 ```
