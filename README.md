@@ -148,43 +148,43 @@ https://www.bazqux.com/reader/api/0/unread-count ([?output=json](https://www.baz
 
 https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www.bazqux.com/reader/api/0/stream/items/ids?output=json))
 
-s=user/-/state/com.google/reading-list
+`s=user/-/state/com.google/reading-list`
 
-s=user/-/state/com.google/starred
+`s=user/-/state/com.google/starred`
 
-s=user/-/state/com.google/broadcast
+`s=user/-/state/com.google/broadcast`
 
-s=user/-/label/...
+`s=user/-/label/...`
 
-s=feed/...
+`s=feed/...`
 
-xt=user/-/state/com.google/read and everything possible in `s=`.
+`xt=user/-/state/com.google/read` and everything possible in `s=`.
 
-n=50000 maximum
+`n=50000` maximum
 
 ### Fetching individual items
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
-no more than 10000 items.
+No more than 10000 items.
 
 ### Fetching streams
-
-The same options as `stream/items/ids` are supported.
-
-n=10000 maximum.
 
 https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
 
 https://www.bazqux.com/reader/atom (= /stream/contents?output=atom)
 
+The same options as for `stream/items/ids` are supported.
+
+`n=10000` maximum.
+
 ### Tagging items
 
 https://www.bazqux.com/reader/api/0/edit-tag
 
-only `user/-/state/com.google/read` tag is supported all other are ignored
+Only `user/-/state/com.google/read` tag is supported. Other tags are ignored.
 
-no more than 10000 items to tag at once.
+No more than 10000 items to tag at once.
 
 ### Folder renaming
 
