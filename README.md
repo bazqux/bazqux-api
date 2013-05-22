@@ -81,3 +81,11 @@ https://www.bazqux.com/reader/api/0/user-info
 {"userId":"01234567890123456789","userName":"realuser","userProfileId":"01234567890123456789","userEmail":"realuser",
 "isBloggerUser":true,"signupTimeSec":1234567890,"isMultiLoginEnabled":true}
 ```
+
+BazQux Reader uses dummy `01234567890123456789` user id for all users.
+
+### Preferences list
+
+https://www.bazqux.com/reader/api/0/preference/list [?output=json](https://www.bazqux.com/reader/api/0/preference/list?output=json)
+
+The only preference is alphabetical sorting of subscriptions.
