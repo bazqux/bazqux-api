@@ -108,3 +108,17 @@ while unique for single user.
 ### Tag list
 
 https://www.bazqux.com/reader/api/0/tag/list ([?output=json](https://www.bazqux.com/reader/api/0/tag/list?output=json))
+
+Only contains list of folders plus some google specific feeds. Not item tags present since tagging is not yet supported
+in BazQux Reader.
+
+### Subscriptions list
+
+https://www.bazqux.com/reader/api/0/subscription/list ([?output=json](https://www.bazqux.com/reader/api/0/subscription/list?output=json))
+
+Always contain `htmlUrl` not depending on favicons setting.
+
+### Adding subscription
+
+https://www.bazqux.com/reader/api/0/subscription/quickadd?q=xkcd.com ([?output=xml](https://www.bazqux.com/reader/api/0/subscription/quickadd=xkcd.com))
+
