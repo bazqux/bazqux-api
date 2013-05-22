@@ -37,7 +37,7 @@ Auth=cltoken
 Where `cltoken` is a random session token that you must pass to all other API calls in
 `Authorization` header in form `GoogleLogin auth=cltoken`.
 
-You can also test most of API calls right in your browser when you signed in BazQux Reader.
+You can test most of API calls right in your browser when you signed in BazQux Reader.
 
 ### Ping
 
@@ -141,3 +141,18 @@ https://www.bazqux.com/reader/api/0/subscription/edit
 
 https://www.bazqux.com/reader/api/0/unread-count ([?output=json](https://www.bazqux.com/reader/api/0/unread-count?output=json))
 
+### ...
+
+https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www.bazqux.com/reader/api/0/stream/items/ids?output=json))
+
+https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/ids?output=atom))
+
+https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
+
+https://www.bazqux.com/reader/atom (no json output option)
+
+https://www.bazqux.com/reader/api/0/edit-tag
+
+https://www.bazqux.com/reader/api/0/rename-tag
+
+https://www.bazqux.com/reader/api/0/disable-tag
