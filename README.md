@@ -116,7 +116,8 @@ in BazQux Reader.
 
 https://www.bazqux.com/reader/api/0/subscription/list ([?output=json](https://www.bazqux.com/reader/api/0/subscription/list?output=json))
 
-Always contain `htmlUrl` not depending on favicons setting.
+Always contain `htmlUrl` not depending on favicons setting. `firstitemmsec` is always dummy `1234567890000` (it seems
+that no one use it).
 
 ### Adding subscription
 
@@ -125,3 +126,10 @@ https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com
 
 BazQux Reader currently doesn't differ GET/POST and query string or form parameters. But you must use POST and append T=token 
 to be future proof.
+
+### Editing subscription
+
+https://www.bazqux.com/reader/api/0/subscription/edit
+
+(?ac=subscribe&s=feed/xkcd.com&t=XKCD)[https://www.bazqux.com/reader/api/0/subscription/edit?ac=subscribe&s=feed/xkcd.com&t=XKCD]
+(?ac=unsubscribe&s=feed/xkcd.com&t=XKCD)[https://www.bazqux.com/reader/api/0/subscription/edit?ac=subscribe&s=feed/xkcd.com&t=XKCD]
