@@ -125,7 +125,7 @@ https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com
 ([?output=xml](https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com&output=xml))
 
 BazQux Reader currently doesn't differ GET/POST and query string or form parameters. But you must use POST and append T=token 
-to be future proof.
+to be future proof (and to be compatible with Google Reader API).
 
 ### Editing subscription
 
@@ -135,5 +135,9 @@ https://www.bazqux.com/reader/api/0/subscription/edit
 
 [...?ac=edit&s=feed/http://xkcd.com/atom.xml&t=NewTitle&a=user/-/label/Comics&r=user/01234567890123456789/label/Foo](https://www.bazqux.com/reader/api/0/subscription/edit?ac=edit&s=feed/http://xkcd.com/atom.xml&t=NewTitle&a=user/-/label/Comics&r=user/01234567890123456789/label/Foo)
 
-[...?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml](https://www.bazqux.com/reader/api/0/subscription/edit?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml))
+[...?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml](https://www.bazqux.com/reader/api/0/subscription/edit?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml)
+
+### Unread count
+
+https://www.bazqux.com/reader/api/0/unread-count ([?output=json](https://www.bazqux.com/reader/api/0/unread-count?output=json))
 
