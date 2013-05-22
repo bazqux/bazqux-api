@@ -82,7 +82,8 @@ https://www.bazqux.com/reader/api/0/user-info
 "isBloggerUser":true,"signupTimeSec":1234567890,"isMultiLoginEnabled":true}
 ```
 
-BazQux Reader uses dummy `01234567890123456789` user id for all users.
+BazQux Reader uses dummy `01234567890123456789` user id for all users and accept any user in Google Reader labels
+or states `user/Abracadabra/label/MyFolder` = `user/01234567890123456789/label/MyFolder` = `user/-/label/MyFolder`. 
 
 ### Preferences list
 
@@ -137,30 +138,62 @@ https://www.bazqux.com/reader/api/0/subscription/edit
 
 [...?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml](https://www.bazqux.com/reader/api/0/subscription/edit?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml)
 
+You can put one subscription in many folders.
+
 ### Unread count
 
 https://www.bazqux.com/reader/api/0/unread-count ([?output=json](https://www.bazqux.com/reader/api/0/unread-count?output=json))
 
-### ...
+### Item ids
 
 https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www.bazqux.com/reader/api/0/stream/items/ids?output=json))
 
-/user/-/state/com.google/reading-list
+s=user/-/state/com.google/reading-list
 
-/user/-/label/...
+s=user/-/state/com.google/starred
 
-/user/-/feed/...
+s=user/-/state/com.google/broadcast
 
-xt=/user/-/state/com.google/read
+s=user/-/label/...
+
+s=feed/...
+
+xt=user/-/state/com.google/read and everything possible in `s=`.
+
+n=50000 maximum
+
+### Fetching individual items
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
+no more than 10000 items.
+
+### Fetching streams
+
+The same options as `stream/items/ids` are supported.
+
+n=10000 maximum.
+
 https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
 
-https://www.bazqux.com/reader/atom
+https://www.bazqux.com/reader/atom (= /stream/contents?output=atom)
+
+### Tagging items
 
 https://www.bazqux.com/reader/api/0/edit-tag
 
-https://www.bazqux.com/reader/api/0/rename-tag
+only `user/-/state/com.google/read` tag is supported all other are ignored
 
-https://www.bazqux.com/reader/api/0/disable-tag
+no more than 10000 items to tag at once.
+
+### Folder renaming
+
+https://www.bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comic&dest=user/-/label/Comics
+
+Tag renaming ignored since there are no tags in BazQux Reader yet.
+
+### Folder removing
+
+https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/Comics
+
+Feeds are not removed, only folder tag is.
