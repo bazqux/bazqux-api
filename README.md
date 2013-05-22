@@ -35,6 +35,9 @@ LSID=unused
 Auth=cltoken
 ```
 
+Where `cltoken` is a random session token that you must pass to all other API calls in
+`Authorization` header in form `GoogleLogin auth=cltoken`.
+
 ### Ping
 
 ```
@@ -53,4 +56,19 @@ It's not used currently but maybe used later the same way Google Reader uses it
 ```
 > curl https://www.bazqux.com/reader/api/0/token -H "Authorization: GoogleLogin auth=cltoken"
 Token123
+```
+
+### Directory search
+
+```
+> curl https://www.bazqux.com/reader/directory/search?q=foo -H "Authorization: GoogleLogin auth=cltoken"
+Search is not yet supported
+```
+
+### User info
+
+```
+> curl <a href="https://www.bazqux.com/reader/api/0/user-info" rel=nofollow>https://www.bazqux.com/reader/api/0/user-info</a> -H "Authorization: GoogleLogin auth=cltoken"
+{"userId":"01234567890123456789","userName":"realuser","userProfileId":"01234567890123456789","userEmail":"realuser",
+"isBloggerUser":true,"signupTimeSec":1234567890,"isMultiLoginEnabled":true}
 ```
