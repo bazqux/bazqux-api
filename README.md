@@ -96,4 +96,6 @@ https://www.bazqux.com/reader/api/0/friend/list ([?output=json](https://www.bazq
 
 Always empty.
 
+### Stream preferences list
 
+https://www.bazqux.com/reader/api/0/preference/stream/list ([?output=json](https://www.bazqux.com/reader/api/0/preference/stream/list?output=json))
