@@ -86,8 +86,14 @@ BazQux Reader uses dummy `01234567890123456789` user id for all users.
 
 ### Preferences list
 
-https://www.bazqux.com/reader/api/0/preference/list
-
-https://www.bazqux.com/reader/api/0/preference/list?output=json
+https://www.bazqux.com/reader/api/0/preference/list ([json](https://www.bazqux.com/reader/api/0/preference/list?output=json))
 
 The only preference is alphabetical sorting of subscriptions.
+
+### Friend list
+
+https://www.bazqux.com/reader/api/0/friend/list ([json](https://www.bazqux.com/reader/api/0/friend/list?output=json))
+
+Always empty.
+
+
