@@ -174,7 +174,7 @@ https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.
 
 https://www.bazqux.com/reader/atom (= /stream/contents?output=atom)
 
-The same options as for `stream/items/ids` are supported.
+The same options as in `stream/items/ids` are supported.
 
 `n=10000` maximum.
 
