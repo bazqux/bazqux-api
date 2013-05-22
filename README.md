@@ -188,12 +188,12 @@ no more than 10000 items to tag at once.
 
 ### Folder renaming
 
-https://www.bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comic&dest=user/-/label/Comics
+https://www.bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comics&dest=user/-/label/NiceComics
 
 Tag renaming ignored since there are no tags in BazQux Reader yet.
 
 ### Folder removing
 
-https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/Comics
+https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
 
 Feeds are not removed, only folder tag is.
