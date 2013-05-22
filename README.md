@@ -99,3 +99,12 @@ Always empty.
 ### Stream preferences list
 
 https://www.bazqux.com/reader/api/0/preference/stream/list ([?output=json](https://www.bazqux.com/reader/api/0/preference/stream/list?output=json))
+
+Contains information about sorting (alphabetical) and expanded/collapsed state of folders. 
+`sortId` is just a number of a feed or folder for current user. The same number is also first half of
+[ItemId](https://code.google.com/p/google-reader-api/wiki/ItemId) so beware that ItemIds are not unique between users
+while unique for single user.
+
+### Tag list
+
+https://www.bazqux.com/reader/api/0/tag/list ([?output=json](https://www.bazqux.com/reader/api/0/tag/list?output=json))
