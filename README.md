@@ -55,7 +55,7 @@ OK
 
 https://www.bazqux.com/reader/api/0/token
 
-It's not used currently but maybe used later the same way Google Reader uses it 
+It's not used currently but may be used later the same way Google Reader uses it 
 (expire in 30 minutes, with "x-reader-google-bad-token: true" header set).
 
 ```
