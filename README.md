@@ -153,11 +153,11 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 xt=/user/-/state/com.google/read
 
-https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
+https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
 https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
 
-https://www.bazqux.com/reader/atom (no json output option)
+https://www.bazqux.com/reader/atom
 
 https://www.bazqux.com/reader/api/0/edit-tag
 
