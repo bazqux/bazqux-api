@@ -34,7 +34,7 @@ LSID=unused
 Auth=cltoken
 ```
 
-Where `cltoken` is a random session token that you must pass to all other API calls in
+Where `cltoken` is a login token you must pass to all other API calls in
 `Authorization` header in form `GoogleLogin auth=cltoken`.
 
 You can test most of API calls right in your browser when you signed in BazQux Reader.
