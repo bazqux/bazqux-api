@@ -196,4 +196,4 @@ Tag renaming ignored since there are no tags in BazQux Reader yet.
 
 https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
 
-Feeds are not removed, only folder tag is.
+Feeds are not removed, only folder tag is (like in Google Reader).
