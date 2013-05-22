@@ -162,6 +162,8 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `n=50000` maximum
 
+Note that item ids are unique for one user but can overlap between users. Please use separate database for each account.
+
 ### Fetching individual items
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
