@@ -95,7 +95,7 @@ The only preference is alphabetical sorting of subscriptions.
 
 https://www.bazqux.com/reader/api/0/friend/list ([?output=json](https://www.bazqux.com/reader/api/0/friend/list?output=json))
 
-Always empty.
+Empty list for compability.
 
 ### Stream preferences list
 
