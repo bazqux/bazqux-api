@@ -3,7 +3,7 @@ BazQux Reader API
 
 It's a copy of Google Reader API. 
 
-The only thing you need to support BazQux Reader is to change
+The only thing you need to support BazQux Reader is to change enpoint URLs from
 `google.com` to `bazqux.com` in your code.
 
 To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
@@ -56,7 +56,7 @@ OK
 https://www.bazqux.com/reader/api/0/token
 
 It's not used currently but may be used later the same way Google Reader uses it 
-(expire in 30 minutes, with "x-reader-google-bad-token: true" header set).
+(expires in 30 minutes, with "x-reader-google-bad-token: true" header set).
 
 ```
 > curl https://www.bazqux.com/reader/api/0/token -H "Authorization: GoogleLogin auth=cltoken"
@@ -158,6 +158,8 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `s=feed/...`
 
+`r=o`
+
 `xt=user/-/state/com.google/read` and everything possible in `s=`.
 
 `n=50000` maximum
@@ -168,7 +170,7 @@ Note that item ids are unique for one user but can overlap between users. Please
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
-No more than 10000 items.
+No more than 10000 items at once.
 
 ### Fetching streams
 
