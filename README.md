@@ -162,7 +162,9 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `xt=user/-/state/com.google/read` and everything possible in `s=`.
 
-`n=50000` maximum
+`ck=...` is ignored.
+
+`n=50000` maximum.
 
 Note that item ids are unique for one user but can overlap between users. Please use separate database for each account.
 
