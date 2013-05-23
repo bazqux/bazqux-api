@@ -1,7 +1,7 @@
 BazQux Reader API
 ==========
 
-BazQux Reader clones Google Reader API. 
+It's a copy of Google Reader API. 
 
 The only thing you need to support BazQux Reader is to change
 `google.com` to `bazqux.com` in your code.
