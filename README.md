@@ -26,7 +26,8 @@ but already available through API.
 BazQux Reader does not automatically mark items as read
 after 30 days. So please don't add `ot=CurrentTime-30days`
 when you get unread items 
-(`s=user/-/state/com.google/reading-list&&xt=user/-/state/com.google/read`).
+(`s=user/-/state/com.google/reading-list&&xt=user/-/state/com.google/read`). 
+You'll miss some unread items this way.
 
 ### Login
 
