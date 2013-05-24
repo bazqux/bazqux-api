@@ -14,13 +14,12 @@ Main API endpoints:
 * https://www.bazqux.com/reader/api/0
 * https://www.bazqux.com/reader/atom
 
-Most parts of the Google Reader API are supported. The only two things missing are
-starring and tagging (API calls just returns OK but no starred items
-or tags are created).
-
 Getting lists of all/unread items/ids in json/atom formats,
-marking items read/unread, adding/removing/renaming of
-subscriptions and folders -- everything is supported.
+marking items read/unread, starring, adding/removing/renaming of
+subscriptions, folders and tags -- everything is supported.
+
+NB: Starred items and tagging are not yet available in BazQux Reader web interface
+but already available through API.
 
 ### Login
 
@@ -110,8 +109,7 @@ while unique for single user.
 
 https://www.bazqux.com/reader/api/0/tag/list ([?output=json](https://www.bazqux.com/reader/api/0/tag/list?output=json))
 
-Only contains list of folders plus some google specific feeds. Not item tags present since tagging is not yet supported
-in BazQux Reader.
+Only contains list of folders, tags and some google specific feeds.
 
 ### Subscriptions list
 
@@ -152,15 +150,17 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `s=user/-/state/com.google/starred`
 
+`s=user/-/state/com.google/read`
+
 `s=user/-/state/com.google/broadcast`
 
-`s=user/-/label/...`
+`s=user/-/label/...` for folders or tags
 
 `s=feed/...`
 
-`r=o`
+`r=o` for oldest first ranking.
 
-`xt=user/-/state/com.google/read` and everything possible in `s=`.
+`xt=...` - everything possible in `s=`.
 
 `ck=...` is ignored.
 
@@ -180,7 +180,7 @@ https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.
 
 https://www.bazqux.com/reader/atom (= /stream/contents?output=atom)
 
-The same options as in `stream/items/ids` are supported.
+The same options as in `stream/items/ids` are supported. When no subscription given defaults to reading-list.
 
 `n=10000` maximum.
 
@@ -188,17 +188,16 @@ The same options as in `stream/items/ids` are supported.
 
 https://www.bazqux.com/reader/api/0/edit-tag
 
-Only `user/-/state/com.google/read` tag is supported. Other tags are ignored.
+`user/-/state/com.google/read` for marking read/unread, `user/-/state/com.google/starred` for starring
+and `s=user/-/label/...` for tagging.
 
 No more than 10000 items to tag at once.
 
-### Folder renaming
+### Folder/tag renaming
 
 https://www.bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comics&dest=user/-/label/NiceComics
 
-Tag renaming ignored since there are no tags in BazQux Reader yet.
-
-### Folder removing
+### Folder/tag removing
 
 https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
 
