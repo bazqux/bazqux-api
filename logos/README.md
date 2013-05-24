@@ -34,6 +34,18 @@ The name means [nothing](https://en.wikipedia.org/wiki/Metasyntactic_variable#En
 
 ![1024x1024](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024.png)
 
+1024x1024 no shadow
+
+![1024x1024 no shadow](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024-no-shadow.png)
+
+1024x1024 flat with glow
+
+![1024x1024 flat with glow](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024-flat-glow.png)
+
+1024x1024 flat
+
+![1024x1024 flat](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024-flat.png)
+
 ### Favicons
 
 ![ico](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon.ico)
