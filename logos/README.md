@@ -34,7 +34,7 @@ The name means [nothing](https://en.wikipedia.org/wiki/Metasyntactic_variable#En
 
 ![1024x1024](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024.png)
 
-### Favicons (if you need them)
+### Favicons
 
 ![ico](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon.ico)
 .ico
