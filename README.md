@@ -21,6 +21,13 @@ subscriptions, folders and tags -- everything is supported.
 NB: Starred items and tagging are not yet available in BazQux Reader web interface
 but already available through API.
 
+### Warning!
+
+BazQux Reader does not automatically mark items as read
+after 30 days. So please don't add `ot=CurrentTime-30days`
+when you get unread items 
+(`s=user/-/state/com.google/reading-list&&xt=user/-/state/com.google/read`).
+
 ### Login
 
 ```
@@ -164,7 +171,11 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `ck=...` is ignored.
 
-`n=50000` maximum.
+`ot=...` - please don't add it when you get unread items list.
+
+`nt=...`
+
+`n=50000` maximum, 20 default.
 
 Note that item ids are unique for one user but can overlap between users. Please use separate database for each account.
 
