@@ -46,6 +46,10 @@ The name means [nothing](https://en.wikipedia.org/wiki/Metasyntactic_variable#En
 
 ![1024x1024 flat](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024-flat.png)
 
+There is also 1024x1024 [monochrome](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-1024-bw.png)
+and 2048x2048 [mask](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-2048-mask.png)
+ if you want to make some post-processing.
+
 ### Favicons
 
 ![ico](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon.ico)
