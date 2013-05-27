@@ -10,6 +10,10 @@ The name means [nothing](https://en.wikipedia.org/wiki/Metasyntactic_variable#En
 
 ### Logos
 
+64x64
+
+![64x64](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-64.png)
+
 100x100
 
 ![100x100](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqux-logo-100.png)
@@ -58,5 +62,8 @@ and 2048x2048 [mask](https://raw.github.com/bazqux/bazqux-api/master/logos/bazqu
 ![png](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon.png)
 .png
 
-![git](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon.gif)
-.gif
+![rounded.png](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon-rounded.png)
+rounded.png (a bit more rounded corners)
+
+![18x18.png](https://raw.github.com/bazqux/bazqux-api/master/logos/favicon-18.png)
+18x18.png (for Opera extension)
