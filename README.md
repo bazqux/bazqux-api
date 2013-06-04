@@ -3,7 +3,7 @@ BazQux Reader API
 
 It's a copy of Google Reader API. 
 
-The only thing you need to support BazQux Reader is to change enpoint URLs from
+The only thing you need to support BazQux Reader is to change endpoint URLs from
 `google.com` to `bazqux.com` in your code.
 
 To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
@@ -102,7 +102,7 @@ The only preference is alphabetical sorting of subscriptions.
 
 https://www.bazqux.com/reader/api/0/friend/list ([?output=json](https://www.bazqux.com/reader/api/0/friend/list?output=json))
 
-Empty list for compability.
+Empty list for compatibility.
 
 ### Stream preferences list
 
