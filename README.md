@@ -18,7 +18,8 @@ Getting lists of all/unread items/ids in json/atom formats,
 marking items read/unread, starring, adding/removing/renaming of
 subscriptions, folders and tags -- everything is supported.
 
-NB: Starred items and tagging are not yet available in BazQux Reader web interface
+NB: Starred items, tagging and custom subscriptions ordering
+are not yet available in BazQux Reader web interface
 but already available through API.
 
 ### Warning!
@@ -96,7 +97,8 @@ or states `user/Abracadabra/label/MyFolder` = `user/01234567890123456789/label/M
 
 https://www.bazqux.com/reader/api/0/preference/list ([?output=json](https://www.bazqux.com/reader/api/0/preference/list?output=json))
 
-The only preference is alphabetical sorting of subscriptions.
+The only preference is alphabetical sorting of subscriptions 
+(custom ordering is not yet available on website).
 
 ### Friend list
 
@@ -112,6 +114,12 @@ Contains information about sorting (alphabetical) and expanded/collapsed state o
 `sortId` is just a number of a feed or folder for current user. The same number is also first half of
 [ItemId](https://code.google.com/p/google-reader-api/wiki/ItemId) so beware that ItemIds are not unique between users
 while unique for single user.
+
+### Set stream preferences
+
+https://www.bazqux.com/reader/api/0/preference/stream/set
+
+You may only set `k=subscription-ordering&s=...&v=...`. Other parameters are ignored.
 
 ### Tag list
 
@@ -160,7 +168,9 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `s=user/-/state/com.google/read`
 
-`s=user/-/state/com.google/broadcast`
+`s=user/-/state/com.google/broadcast` - empty results
+
+`s=user/-/state/com.google/created` - empty results
 
 `s=user/-/label/...` for folders or tags
 
@@ -175,6 +185,8 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 `ot=...` - please don't add it when you get unread items list.
 
 `nt=...`
+
+`c=...` continuation from previous request (it's just an ItemId and hence never expire).
 
 `n=50000` maximum, 20 default.
 
