@@ -15,9 +15,13 @@ Main API endpoints:
 * https://www.bazqux.com/reader/atom
 
 Getting lists of all/unread items/ids in json/atom formats,
-marking items read/unread, custom subscriptions ordering, 
-starring, adding/removing/renaming of subscriptions, 
-folders and tags -- everything is supported.
+marking items read/unread, starring, tagging, 
+adding/removing/renaming of subscriptions, 
+folders and tags, custom subscriptions ordering -- everything is supported.
+
+API implementation is tested and works with [Mr.Reader](http://mrreaderblog.curioustimes.de/post/52060909928/supported-google-reader-alternatives-part-two), 
+Feeddler, hacked versions of Reeder for Mac and NetNewsWire for Mac.
+So there is a high probability it will work in your Reader App without any crutches.
 
 NB: Starred items, tagging and custom subscriptions ordering
 are not yet available in BazQux Reader web interface
@@ -29,7 +33,7 @@ BazQux Reader does not automatically mark items as read
 after 30 days. So please don't add `ot=CurrentTime-30days`
 when you get unread items 
 (`s=user/-/state/com.google/reading-list&&xt=user/-/state/com.google/read`). 
-You'll miss some unread items this way.
+You may miss some unread items this way.
 
 ### Login
 
