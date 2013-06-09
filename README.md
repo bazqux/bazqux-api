@@ -15,8 +15,9 @@ Main API endpoints:
 * https://www.bazqux.com/reader/atom
 
 Getting lists of all/unread items/ids in json/atom formats,
-marking items read/unread, starring, adding/removing/renaming of
-subscriptions, folders and tags -- everything is supported.
+marking items read/unread, custom subscriptions ordering, 
+starring, adding/removing/renaming of subscriptions, 
+folders and tags -- everything is supported.
 
 NB: Starred items, tagging and custom subscriptions ordering
 are not yet available in BazQux Reader web interface
