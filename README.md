@@ -9,15 +9,9 @@ The only thing you need to support BazQux Reader is to change endpoint URLs from
 To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to the Options (top-right corner) => Mobile login.
 
-If you're developer of mobile or desktop client app 
-mail `hello` at `bazqux.com` with any questions.
-
 API implementation is tested and works with [Mr.Reader](http://mrreaderblog.curioustimes.de/post/52060909928/supported-google-reader-alternatives-part-two), 
 Feeddler, hacked versions of Reeder for Mac and NetNewsWire for Mac.
 So there is a high probability it will work with your App without any crutches.
-
-If you're customer please tell developers of your favorite app
-to add support for BazQux Reader. It's really simple thing to do.
 
 ### Main API endpoints
 
