@@ -9,7 +9,18 @@ The only thing you need to support BazQux Reader is to change endpoint URLs from
 To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to the Options (top-right corner) => Mobile login.
 
-Main API endpoints:
+If you're developer of mobile or desktop client app 
+mail `hello` at `bazqux.com` with any questions.
+
+API implementation is tested and works with [Mr.Reader](http://mrreaderblog.curioustimes.de/post/52060909928/supported-google-reader-alternatives-part-two), 
+Feeddler, hacked versions of Reeder for Mac and NetNewsWire for Mac.
+So there is a high probability it will work with your App without any crutches.
+
+If you're customer please tell developers of your favorite app
+to add support for BazQux Reader. It's really simple thing to do.
+
+### Main API endpoints
+
 * https://www.bazqux.com/accounts/ClientLogin
 * https://www.bazqux.com/reader/api/0
 * https://www.bazqux.com/reader/atom
@@ -18,10 +29,6 @@ Getting lists of all/unread items/ids in json/atom formats,
 marking items read/unread, starring, tagging, 
 adding/removing/renaming of subscriptions, 
 folders and tags, custom subscriptions ordering -- everything is supported.
-
-API implementation is tested and works with [Mr.Reader](http://mrreaderblog.curioustimes.de/post/52060909928/supported-google-reader-alternatives-part-two), 
-Feeddler, hacked versions of Reeder for Mac and NetNewsWire for Mac.
-So there is a high probability it will work in your Reader App without any crutches.
 
 NB: Starred items, tagging and custom subscriptions ordering
 are not yet available in BazQux Reader web interface
