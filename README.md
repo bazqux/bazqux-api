@@ -10,7 +10,7 @@ To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to the Options (top-right corner) => Mobile login.
 
 API implementation is tested and works with [Mr.Reader](http://mrreaderblog.curioustimes.de/post/52060909928/supported-google-reader-alternatives-part-two), 
-Feeddler, hacked versions of Reeder for Mac and NetNewsWire for Mac.
+[Feeddler](http://blog.chebinliu.com/2013/06/feeddler-status-update.html), hacked versions of Reeder for Mac and NetNewsWire for Mac.
 So there is a high probability it will work with your App without any crutches.
 
 ### Main API endpoints
