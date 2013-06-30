@@ -140,6 +140,10 @@ https://www.bazqux.com/reader/api/0/subscription/list ([?output=json](https://ww
 Always contain `htmlUrl` not depending on favicons setting. `firstitemmsec` is always dummy `1234567890000` (it seems
 that no one use it).
 
+### Subscriptions OPML
+
+https://www.bazqux.com/reader/subscriptions/export
+
 ### Adding subscription
 
 https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com
