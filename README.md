@@ -10,8 +10,7 @@ To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to the Options (top-right corner) => Mobile login.
 
 API implementation is tested and works with [Mr.Reader](http://mrreaderblog.curioustimes.de/post/52060909928/supported-google-reader-alternatives-part-two), 
-[Feeddler](http://blog.chebinliu.com/2013/06/feeddler-status-update.html), hacked versions of Reeder for Mac and NetNewsWire for Mac.
-So there is a high probability it will work with your App without any crutches.
+[Feeddler](http://blog.chebinliu.com/2013/06/feeddler-status-update.html), [JustReader](http://justreader.net) and [Vienna RSS](http://www.vienna-rss.org). So there is a high probability it will work with your App without any hassle.
 
 ### Main API endpoints
 
@@ -190,6 +189,8 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `xt=...` - everything possible in `s=`.
 
+`it=...` - only messages with specific tags (starred items in feed). NB: It's an extension to GR API
+
 `ck=...` is ignored.
 
 `ot=...` - please don't add it when you get unread items list.
@@ -236,3 +237,17 @@ https://www.bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comics&dest=user/-
 https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
 
 Feeds are not removed, only folder tag is (like in Google Reader).
+
+### Subscriptions import
+
+NB: This method is an extension to GR API. 
+
+https://www.bazqux.com/reader/api/0/import/opml
+
+Post OPML data here. It will return percent of feeds currently processed (integer number in plain text).
+
+You can then poll (each 3 seconds for example)
+
+https://www.bazqux.com/reader/api/0/import/percent-complete
+
+till it return "100".
