@@ -207,7 +207,7 @@ Note that item ids are unique for one user but can overlap between users. Please
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
-No more than 10000 items at once.
+No more than 1000 items at once.
 
 ### Fetching streams
 
@@ -217,7 +217,7 @@ https://www.bazqux.com/reader/atom (= /stream/contents?output=atom)
 
 The same options as in `stream/items/ids` are supported. When no subscription given defaults to reading-list.
 
-`n=10000` maximum.
+`n=1000` maximum.
 
 ### Tagging items
 
