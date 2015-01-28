@@ -244,7 +244,7 @@ NB: This method is an extension to GR API.
 
 https://www.bazqux.com/reader/api/0/import/opml
 
-Post OPML data here. It will return percent of feeds currently processed (integer number in plain text).
+Post OPML data in `opml` parameter (in usual `application/x-www-form-urlencoded` form). It will return percent of feeds currently processed (integer number in plain text).
 
 You can then poll (each 3 seconds for example)
 
