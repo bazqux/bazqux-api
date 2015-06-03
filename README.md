@@ -1,7 +1,7 @@
 BazQux Reader API
 ==========
 
-It's a copy of Google Reader API. 
+It's a copy of Google Reader API.
 
 The only thing you need to support BazQux Reader is to change endpoint URLs from
 `google.com` to `bazqux.com` in your code.
@@ -225,7 +225,25 @@ Note that item ids are unique for one user but can overlap between users. Please
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
+Pass all your item ids in `i=` parameters (like `i=item_id2&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
+
 No more than 1000 items at once.
+
+### About item ids
+
+Item ids are 64 bit signed integers. To be compatible with Google Reader they are sometimes represented in long form:
+
+`tag:google.com,2005:reader/item/<unsigned zero-padded 64 bit hexadecimal number>`
+
+For example
+
+`tag:google.com,2005:reader/item/000088960000047a` = `150177826473082`
+
+`tag:google.com,2005:reader/item/80484b00000e8003` = `-9203023375158575101`
+
+All API calls accept both item ids formats. Note that `/stream/items/ids` return ids in short form but `/stream/items/contents` in long form. You can safely convert them to 64 bit signed integer.
+
+More here https://code.google.com/p/google-reader-api/wiki/ItemId
 
 ### Fetching streams
 
@@ -269,3 +287,17 @@ You can then poll (each 3 seconds for example)
 https://www.bazqux.com/reader/api/0/import/percent-complete
 
 till it return "100".
+
+### Links
+
+Description of API from Mihai Parparita (Google Reader project manager), I suggest you to look here first when you need details about API calls:
+
+https://code.google.com/p/google-reader-api/w/list
+
+Docs from Nick Bradbury (NetNewsWire developer):
+
+http://inessential.com/2013/03/14/google_reader_api_documentation
+
+One more descrption:
+
+https://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI
