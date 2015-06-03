@@ -217,6 +217,8 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `n=50000` maximum, 20 default.
 
+`includeAllDirectStreamIds=true` return feed and tags for each item
+
 Note that item ids are unique for one user but can overlap between users. Please use separate database for each account.
 
 ### Fetching individual items
