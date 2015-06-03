@@ -30,7 +30,7 @@ folders and tags, custom subscriptions ordering -- everything is supported.
 BazQux Reader does not automatically mark items as read
 after 30 days. So please don't add `ot=CurrentTime-30days`
 when you get unread items 
-(`s=user/-/state/com.google/reading-list&&xt=user/-/state/com.google/read`). 
+(`s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read`). 
 You may miss some unread items this way.
 
 ### Login
@@ -49,6 +49,24 @@ Where `cltoken` is a client login token that you must pass to all other API call
 `Authorization` header in form `GoogleLogin auth=cltoken`.
 
 You can test most API calls right in your browser when you signed in BazQux Reader.
+
+### Login error details
+
+This is an extension to Google Reader API. Since BazQux Reader is a commercial app login can fail even with correct login & password if free trial or subscription has expired. This information is passed in `X-BQ-LoginErrorReason` HTTP response header. There are two possible values `YearSubscriptionExpired` and `FreeTrialExpired`. And there are two test accounts for it:
+
+```
+curl -v https://www.bazqux.com/accounts/ClientLogin -d Email=se -d Passwd=1
+...
+< X-BQ-LoginErrorReason: YearSubscriptionExpired
+...
+
+curl -v https://www.bazqux.com/accounts/ClientLogin -d Email=fte -d Passwd=1
+...
+< X-BQ-LoginErrorReason: FreeTrialExpired
+...
+```
+
+I strongly suggest you to check this header and display corresponding error messages "Login failed: Your subscription has expired" or "Login failed: your free trial has expired". This can greatly reduce a number of "why I can't login today?" support requests.
 
 ### Ping
 
