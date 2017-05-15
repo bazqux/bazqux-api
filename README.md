@@ -48,6 +48,8 @@ Auth=cltoken
 Where `cltoken` is a client login token that you must pass to all other API calls in
 `Authorization` header in form `GoogleLogin auth=cltoken`.
 
+`cltoken` currently expires in 14 days. If you get `401 Unauthorized` reply from any other request earlier, you need to relogin with existing credentials. Show user the login dialog with ability to enter new credentials only if relogin has failed.
+
 You can test most API calls right in your browser when you signed in BazQux Reader.
 
 ### Login error details
