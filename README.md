@@ -10,7 +10,7 @@ To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to the Options (top-right corner) => Mobile login.
 
 API implementation is tested and works with [Mr. Reader](http://www.curioustimes.de/mrreader/), [Reeder](http://reeder.ch/), 
-[Feeddler](https://itunes.apple.com/ru/app/feeddler-rss-reader-pro-2/id919056339?mt=8), [Slow Feeds](http://zoziapps.ch/slowfeeds/), [JustReader](https://play.google.com/store/apps/details?id=ru.enacu.myreader), [News+](http://newsplus.co) and [Vienna RSS](http://www.vienna-rss.org). So there is a high probability it will work with your App without any hassle.
+[Feeddler](https://itunes.apple.com/ru/app/feeddler-rss-reader-pro-2/id919056339?mt=8), [Slow Feeds](http://zoziapps.ch/slowfeeds/), [JustReader](https://play.google.com/store/apps/details?id=ru.enacu.myreader), [News+](http://newsplus.co) and [Vienna RSS](http://www.vienna-rss.com). So there is a high probability it will work with your App without any hassle.
 
 BazQux Reader also implements [Fever API](http://feedafever.com/api), which works in [Unread](http://jaredsinclair.com/unread/), [Press](http://twentyfivesquares.com/press/) and [ReadKit](http://readkitapp.com).
 
