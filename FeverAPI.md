@@ -1,4 +1,4 @@
-BazQux Reader API
+Fever API
 ==========
 
 It's a copy of https://feedafever.com/api in case it will be shut down.
