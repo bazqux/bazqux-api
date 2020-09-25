@@ -4,15 +4,19 @@ BazQux Reader API
 It's a copy of Google Reader API.
 
 The only thing you need to support BazQux Reader is to change endpoint URLs from
-`google.com` to `bazqux.com` in your code (or `www.google.com` to `www.bazqux.com`).
+`google.com` to `bazqux.com` (or `www.google.com` to `www.bazqux.com`) in your code.
 
-To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
-and go to the Options (top-right corner) => Mobile login.
+You need to have active account (either free trial or paid one) in [BazQux Reader](https://bazqux.com).
+If you're client app developer you could mail you [account id](https://bazqux.com/whoami) to support@bazqux.com
+and I will mark your account as forever free.
 
-API implementation is tested and works with [Mr. Reader](http://www.curioustimes.de/mrreader/), [Reeder](http://reeder.ch/),
-[Feeddler](https://itunes.apple.com/ru/app/feeddler-rss-reader-pro-2/id919056339?mt=8), [Slow Feeds](http://zoziapps.ch/slowfeeds/), [JustReader](https://play.google.com/store/apps/details?id=ru.enacu.myreader), [News+](http://newsplus.co) and [Vienna RSS](http://www.vienna-rss.com). So there is a high probability it will work with your App without any hassle.
+If you haven't registered via email & password (logged in via Google/Facebook/Twitter/OpenID)
+you need to set username & password in settings (top-right corner) => Account.
 
-BazQux Reader also implements [Fever API](http://feedafever.com/api), which works in [Unread](http://jaredsinclair.com/unread/), [Press](http://twentyfivesquares.com/press/) and [ReadKit](http://readkitapp.com).
+API implementation is tested and works with [Reeder](https://reederapp.com/),
+[Feeddler](https://itunes.apple.com/app/feeddler-rss-reader-pro-2/id919056339), [Web Subscriber](https://zoziapps.ch/web-subscriber/) and [Vienna RSS](http://www.vienna-rss.com). So there is a high probability it will work with your App without any hassle.
+
+BazQux Reader also implements [Fever API](http://feedafever.com/api), which works in [Unread](https://www.goldenhillsoftware.com/unread/) and [ReadKit](https://readkitapp.com).
 
 ### Main API endpoints
 
