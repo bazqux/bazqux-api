@@ -4,42 +4,42 @@ BazQux Reader API
 It's a copy of Google Reader API.
 
 The only thing you need to support BazQux Reader is to change endpoint URLs from
-`google.com` to `bazqux.com` in your code.
+`google.com` to `bazqux.com` in your code (or `www.google.com` to `www.bazqux.com`).
 
 To set login/password you need to sign into [BazQux Reader](https://bazqux.com)
 and go to the Options (top-right corner) => Mobile login.
 
-API implementation is tested and works with [Mr. Reader](http://www.curioustimes.de/mrreader/), [Reeder](http://reeder.ch/), 
+API implementation is tested and works with [Mr. Reader](http://www.curioustimes.de/mrreader/), [Reeder](http://reeder.ch/),
 [Feeddler](https://itunes.apple.com/ru/app/feeddler-rss-reader-pro-2/id919056339?mt=8), [Slow Feeds](http://zoziapps.ch/slowfeeds/), [JustReader](https://play.google.com/store/apps/details?id=ru.enacu.myreader), [News+](http://newsplus.co) and [Vienna RSS](http://www.vienna-rss.com). So there is a high probability it will work with your App without any hassle.
 
 BazQux Reader also implements [Fever API](http://feedafever.com/api), which works in [Unread](http://jaredsinclair.com/unread/), [Press](http://twentyfivesquares.com/press/) and [ReadKit](http://readkitapp.com).
 
 ### Main API endpoints
 
-* https://www.bazqux.com/accounts/ClientLogin
-* https://www.bazqux.com/reader/api/0
-* https://www.bazqux.com/reader/atom
+* https://bazqux.com/accounts/ClientLogin
+* https://bazqux.com/reader/api/0
+* https://bazqux.com/reader/atom
 
 Getting lists of all/unread items/ids in json/atom formats,
-marking items read/unread, starring, tagging, 
-adding/removing/renaming of subscriptions, 
+marking items read/unread, starring, tagging,
+adding/removing/renaming of subscriptions,
 folders and tags, custom subscriptions ordering -- everything is supported.
 
 ### Warning!
 
 BazQux Reader does not automatically mark items as read
 after 30 days. So please don't add `ot=CurrentTime-30days`
-when you get unread items 
-(`s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read`). 
+when you get unread items
+(`s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read`).
 You may miss some unread items this way.
 
 ### Login
 
 ```
-> curl https://www.bazqux.com/accounts/ClientLogin -d Email=foo -d Passwd=bar
+> curl https://bazqux.com/accounts/ClientLogin -d Email=foo -d Passwd=bar
 Error=BadAuthentication
 
-> curl https://www.bazqux.com/accounts/ClientLogin -d Email=realuser -d Passwd=***
+> curl https://bazqux.com/accounts/ClientLogin -d Email=realuser -d Passwd=***
 SID=unused
 LSID=unused
 Auth=cltoken
@@ -57,12 +57,12 @@ You can test most API calls right in your browser when you signed in BazQux Read
 This is an extension to Google Reader API. Since BazQux Reader is a commercial app login can fail even with correct login & password if free trial or subscription has expired. This information is passed in `X-BQ-LoginErrorReason` HTTP response header. There are two possible values `YearSubscriptionExpired` and `FreeTrialExpired`. And there are two test accounts for it:
 
 ```
-curl -v https://www.bazqux.com/accounts/ClientLogin -d Email=se -d Passwd=1
+curl -v https://bazqux.com/accounts/ClientLogin -d Email=se -d Passwd=1
 ...
 < X-BQ-LoginErrorReason: YearSubscriptionExpired
 ...
 
-curl -v https://www.bazqux.com/accounts/ClientLogin -d Email=fte -d Passwd=1
+curl -v https://bazqux.com/accounts/ClientLogin -d Email=fte -d Passwd=1
 ...
 < X-BQ-LoginErrorReason: FreeTrialExpired
 ...
@@ -72,122 +72,122 @@ I strongly suggest you to check this header and display corresponding error mess
 
 ### Ping
 
-https://www.bazqux.com/reader/ping
+https://bazqux.com/reader/ping
 
 ```
-> curl https://www.bazqux.com/reader/ping
+> curl https://bazqux.com/reader/ping
 Unauthorized
 
-> curl https://www.bazqux.com/reader/ping -H "Authorization: GoogleLogin auth=cltoken"
+> curl https://bazqux.com/reader/ping -H "Authorization: GoogleLogin auth=cltoken"
 OK
 ```
 
 ### Token
 
-https://www.bazqux.com/reader/api/0/token
+https://bazqux.com/reader/api/0/token
 
-It's not used currently but may be used later the same way Google Reader uses it 
+It's not used currently but may be used later the same way Google Reader uses it
 (expires in 30 minutes, with "x-reader-google-bad-token: true" header set).
 
 ```
-> curl https://www.bazqux.com/reader/api/0/token -H "Authorization: GoogleLogin auth=cltoken"
+> curl https://bazqux.com/reader/api/0/token -H "Authorization: GoogleLogin auth=cltoken"
 Token123
 ```
 
 ### Directory search
 
-https://www.bazqux.com/reader/directory/search
+https://bazqux.com/reader/directory/search
 
 ```
-> curl https://www.bazqux.com/reader/directory/search?q=foo -H "Authorization: GoogleLogin auth=cltoken"
+> curl https://bazqux.com/reader/directory/search?q=foo -H "Authorization: GoogleLogin auth=cltoken"
 Search is not yet supported
 ```
 
 ### User info
 
-https://www.bazqux.com/reader/api/0/user-info
+https://bazqux.com/reader/api/0/user-info
 
 ```
-> curl https://www.bazqux.com/reader/api/0/user-info -H "Authorization: GoogleLogin auth=cltoken"
+> curl https://bazqux.com/reader/api/0/user-info -H "Authorization: GoogleLogin auth=cltoken"
 {"userId":"01234567890123456789","userName":"realuser","userProfileId":"01234567890123456789","userEmail":"realuser",
 "isBloggerUser":true,"signupTimeSec":1234567890,"isMultiLoginEnabled":true}
 ```
 
 BazQux Reader uses dummy `01234567890123456789` user id for all users and accept any user in Google Reader labels
-or states `user/Abracadabra/label/MyFolder` = `user/01234567890123456789/label/MyFolder` = `user/-/label/MyFolder`. 
+or states `user/Abracadabra/label/MyFolder` = `user/01234567890123456789/label/MyFolder` = `user/-/label/MyFolder`.
 
 ### Preferences list
 
-https://www.bazqux.com/reader/api/0/preference/list ([?output=json](https://www.bazqux.com/reader/api/0/preference/list?output=json))
+https://bazqux.com/reader/api/0/preference/list ([?output=json](https://bazqux.com/reader/api/0/preference/list?output=json))
 
-The only preference is alphabetical sorting of subscriptions 
+The only preference is alphabetical sorting of subscriptions
 (custom ordering is not yet available on website).
 
 ### Friend list
 
-https://www.bazqux.com/reader/api/0/friend/list ([?output=json](https://www.bazqux.com/reader/api/0/friend/list?output=json))
+https://bazqux.com/reader/api/0/friend/list ([?output=json](https://bazqux.com/reader/api/0/friend/list?output=json))
 
 Empty list for compatibility.
 
 ### Stream preferences list
 
-https://www.bazqux.com/reader/api/0/preference/stream/list ([?output=json](https://www.bazqux.com/reader/api/0/preference/stream/list?output=json))
+https://bazqux.com/reader/api/0/preference/stream/list ([?output=json](https://bazqux.com/reader/api/0/preference/stream/list?output=json))
 
-Contains information about sorting (alphabetical) and expanded/collapsed state of folders. 
+Contains information about sorting (alphabetical) and expanded/collapsed state of folders.
 `sortId` is just a number of a feed or folder for current user. The same number is also first half of
 [ItemId](#about-item-ids) so beware that ItemIds are not unique between users
 while unique for single user.
 
 ### Set stream preferences
 
-https://www.bazqux.com/reader/api/0/preference/stream/set
+https://bazqux.com/reader/api/0/preference/stream/set
 
 You may only set `k=subscription-ordering&s=...&v=...`. Other parameters are ignored.
 
 ### Tag list
 
-https://www.bazqux.com/reader/api/0/tag/list ([?output=json](https://www.bazqux.com/reader/api/0/tag/list?output=json))
+https://bazqux.com/reader/api/0/tag/list ([?output=json](https://bazqux.com/reader/api/0/tag/list?output=json))
 
 Only contains list of folders, tags and some google specific feeds.
 
 ### Subscriptions list
 
-https://www.bazqux.com/reader/api/0/subscription/list ([?output=json](https://www.bazqux.com/reader/api/0/subscription/list?output=json))
+https://bazqux.com/reader/api/0/subscription/list ([?output=json](https://bazqux.com/reader/api/0/subscription/list?output=json))
 
 Always contain `htmlUrl` not depending on favicons setting. `firstitemmsec` is always dummy `1234567890000` (it seems
 that no one use it).
 
 ### Subscriptions OPML
 
-https://www.bazqux.com/reader/subscriptions/export
+https://bazqux.com/reader/subscriptions/export
 
 ### Adding subscription
 
-https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com
-([?output=xml](https://www.bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com&output=xml))
+https://bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com
+([?output=xml](https://bazqux.com/reader/api/0/subscription/quickadd?quickadd=xkcd.com&output=xml))
 
-BazQux Reader currently doesn't differ GET/POST and query string or form parameters. But you must use POST and append T=token 
+BazQux Reader currently doesn't differ GET/POST and query string or form parameters. But you must use POST and append T=token
 to be future proof (and to be compatible with Google Reader API).
 
 ### Editing subscription
 
-https://www.bazqux.com/reader/api/0/subscription/edit
+https://bazqux.com/reader/api/0/subscription/edit
 
-[...?ac=subscribe&s=feed/xkcd.com&t=XKCD](https://www.bazqux.com/reader/api/0/subscription/edit?ac=subscribe&s=feed/xkcd.com&t=XKCD)
+[...?ac=subscribe&s=feed/xkcd.com&t=XKCD](https://bazqux.com/reader/api/0/subscription/edit?ac=subscribe&s=feed/xkcd.com&t=XKCD)
 
-[...?ac=edit&s=feed/http://xkcd.com/atom.xml&t=NewTitle&a=user/-/label/Comics&r=user/01234567890123456789/label/Foo](https://www.bazqux.com/reader/api/0/subscription/edit?ac=edit&s=feed/http://xkcd.com/atom.xml&t=NewTitle&a=user/-/label/Comics&r=user/01234567890123456789/label/Foo)
+[...?ac=edit&s=feed/http://xkcd.com/atom.xml&t=NewTitle&a=user/-/label/Comics&r=user/01234567890123456789/label/Foo](https://bazqux.com/reader/api/0/subscription/edit?ac=edit&s=feed/http://xkcd.com/atom.xml&t=NewTitle&a=user/-/label/Comics&r=user/01234567890123456789/label/Foo)
 
-[...?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml](https://www.bazqux.com/reader/api/0/subscription/edit?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml)
+[...?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml](https://bazqux.com/reader/api/0/subscription/edit?ac=unsubscribe&s=feed/http://xkcd.com/atom.xml)
 
 You can put one subscription in many folders.
 
 ### Unread count
 
-https://www.bazqux.com/reader/api/0/unread-count ([?output=json](https://www.bazqux.com/reader/api/0/unread-count?output=json))
+https://bazqux.com/reader/api/0/unread-count ([?output=json](https://bazqux.com/reader/api/0/unread-count?output=json))
 
 ### Item ids
 
-https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www.bazqux.com/reader/api/0/stream/items/ids?output=json))
+https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.com/reader/api/0/stream/items/ids?output=json))
 
 `s=user/-/state/com.google/reading-list`
 
@@ -225,7 +225,7 @@ Note that item ids are unique for one user but can overlap between users. Please
 
 ### Fetching individual items
 
-https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
+https://bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
 Pass all your [item ids](#about-item-ids) in `i=` parameters (like `i=item_id2&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
 
@@ -249,9 +249,9 @@ More here https://raw.githubusercontent.com/mihaip/google-reader-api/master/wiki
 
 ### Fetching streams
 
-https://www.bazqux.com/reader/api/0/stream/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/contents?output=atom))
+https://bazqux.com/reader/api/0/stream/contents ([?output=atom](https://bazqux.com/reader/api/0/stream/contents?output=atom))
 
-https://www.bazqux.com/reader/atom (= /stream/contents?output=atom)
+https://bazqux.com/reader/atom (= /stream/contents?output=atom)
 
 The same options as in `stream/items/ids` are supported. When no subscription given defaults to reading-list.
 
@@ -259,7 +259,7 @@ The same options as in `stream/items/ids` are supported. When no subscription gi
 
 ### Tagging items
 
-https://www.bazqux.com/reader/api/0/edit-tag
+https://bazqux.com/reader/api/0/edit-tag
 
 `i=` - list of [item ids](#about-item-ids) (as in [/stream/items/contents](#fetching-individual-items)).
 
@@ -272,27 +272,35 @@ and `user/-/label/...` for tagging.
 
 No more than 10000 items to tag at once.
 
+### Marking all as read
+
+https://bazqux.com/reader/api/0/mark-all-as-read
+
+`s=` - feed you want to mark as read (same format as in [/stream/items/ids](#item-ids)).
+
+No more than 50000 items are marked at once.
+
 ### Folder/tag renaming
 
-https://www.bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comics&dest=user/-/label/NiceComics
+https://bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comics&dest=user/-/label/NiceComics
 
 ### Folder/tag removing
 
-https://www.bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
+https://bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
 
 Feeds are not removed, only folder tag is (like in Google Reader).
 
 ### Subscriptions import
 
-NB: This method is an extension to GR API. 
+NB: This method is an extension to GR API.
 
-https://www.bazqux.com/reader/api/0/import/opml
+https://bazqux.com/reader/api/0/import/opml
 
 Post OPML data in `opml` parameter (in usual `application/x-www-form-urlencoded` form). It will return percent of feeds currently processed (integer number in plain text).
 
 You can then poll (each 3 seconds for example)
 
-https://www.bazqux.com/reader/api/0/import/percent-complete
+https://bazqux.com/reader/api/0/import/percent-complete
 
 till it return "100".
 
