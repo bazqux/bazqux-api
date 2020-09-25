@@ -16,7 +16,7 @@ you need to set username & password in settings (top-right corner) => Account.
 API implementation is tested and works with [Reeder](https://reederapp.com/),
 [Feeddler](https://itunes.apple.com/app/feeddler-rss-reader-pro-2/id919056339), [Web Subscriber](https://zoziapps.ch/web-subscriber/) and [Vienna RSS](http://www.vienna-rss.com). So there is a high probability it will work with your App without any hassle.
 
-BazQux Reader also implements [Fever API](http://feedafever.com/api), which works in [Unread](https://www.goldenhillsoftware.com/unread/) and [ReadKit](https://readkitapp.com).
+BazQux Reader also implements [Fever API](http://feedafever.com/api) ([local copy](FeverAPI.md)), which works in [Unread](https://www.goldenhillsoftware.com/unread/) and [ReadKit](https://readkitapp.com).
 
 ### Main API endpoints
 
