@@ -135,7 +135,7 @@ https://www.bazqux.com/reader/api/0/preference/stream/list ([?output=json](https
 
 Contains information about sorting (alphabetical) and expanded/collapsed state of folders. 
 `sortId` is just a number of a feed or folder for current user. The same number is also first half of
-[ItemId](https://code.google.com/p/google-reader-api/wiki/ItemId) so beware that ItemIds are not unique between users
+[ItemId](#about-item-ids) so beware that ItemIds are not unique between users
 while unique for single user.
 
 ### Set stream preferences
@@ -215,7 +215,7 @@ https://www.bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://www
 
 `nt=...`
 
-`c=...` continuation from previous request (it's just an ItemId and hence never expire).
+`c=...` continuation from previous request (it's just an item id and hence never expire).
 
 `n=50000` maximum, 20 default.
 
@@ -227,7 +227,7 @@ Note that item ids are unique for one user but can overlap between users. Please
 
 https://www.bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://www.bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
-Pass all your item ids in `i=` parameters (like `i=item_id2&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
+Pass all your [item ids](#about-item-ids) in `i=` parameters (like `i=item_id2&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
 
 No more than 1000 items at once.
 
@@ -245,7 +245,7 @@ For example
 
 All API calls accept both item ids formats. Note that `/stream/items/ids` return ids in short form but `/stream/items/contents` in long form. You can safely convert them to 64 bit signed integer.
 
-More here https://code.google.com/p/google-reader-api/wiki/ItemId
+More here https://raw.githubusercontent.com/mihaip/google-reader-api/master/wiki/ItemId.wiki
 
 ### Fetching streams
 
@@ -261,8 +261,14 @@ The same options as in `stream/items/ids` are supported. When no subscription gi
 
 https://www.bazqux.com/reader/api/0/edit-tag
 
-`user/-/state/com.google/read` for marking read/unread, `user/-/state/com.google/starred` for starring
-and `s=user/-/label/...` for tagging.
+`i=` - list of [item ids](#about-item-ids) (as in [/stream/items/contents](#fetching-individual-items)).
+
+`a=` - add tag.
+
+`r=` - remove tag.
+
+Tags are: `user/-/state/com.google/read` for marking read/unread, `user/-/state/com.google/starred` for starring
+and `user/-/label/...` for tagging.
 
 No more than 10000 items to tag at once.
 
