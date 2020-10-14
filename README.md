@@ -215,13 +215,15 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `ck=...` is ignored.
 
-`ot=...` - please don't add it when you get unread items list.
+`ot=...` - minimum download time in seconds. It's time after which item appeared in reader, not the published time. Please don't add it when you get unread items list (there are no 30 days limit on a number of unread items).
 
-`nt=...`
+`nt=...` - maximum download time in seconds.
+
+`ts=...` - maximum published time in μs (1e-6 seconds). This could be used in [mark-all-as-read](#marking-all-as-read) call to implement "Mark older than N days" feature.
 
 `c=...` continuation from previous request (it's just an item id and hence never expire).
 
-`n=50000` maximum, 20 default.
+`n=...` - number of items. Default is 20, maximum is 50000.
 
 `includeAllDirectStreamIds=true` return feed and tags for each item
 
@@ -280,7 +282,7 @@ No more than 10000 items to tag at once.
 
 https://bazqux.com/reader/api/0/mark-all-as-read
 
-`s=` - feed you want to mark as read (same format as in [/stream/items/ids](#item-ids)).
+`s=` - feed you want to mark as read (you could use all parameters that [/stream/items/ids](#item-ids) accepts).
 
 No more than 50000 items are marked at once.
 
