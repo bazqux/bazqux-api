@@ -27,7 +27,7 @@ BazQux Reader also implements [Fever API](http://feedafever.com/api) ([local cop
 Getting lists of all/unread items/ids in json/atom formats,
 marking items read/unread, starring, tagging,
 adding/removing/renaming of subscriptions,
-folders and tags, custom subscriptions ordering -- everything is supported.
+folders and tags (smart streams works like tags from API), custom subscriptions ordering -- everything is supported.
 
 ### Warning!
 
@@ -152,7 +152,7 @@ You may only set `k=subscription-ordering&s=...&v=...`. Other parameters are ign
 
 https://bazqux.com/reader/api/0/tag/list ([?output=json](https://bazqux.com/reader/api/0/tag/list?output=json))
 
-Only contains list of folders, tags and some google specific feeds.
+Only contains list of folders, tags, smart streams and some google specific feeds.
 
 ### Subscriptions list
 
@@ -203,7 +203,7 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `s=user/-/state/com.google/created` - empty results
 
-`s=user/-/label/...` - folders or tags
+`s=user/-/label/...` - folder, tag or smart stream
 
 `s=feed/...`
 
@@ -211,7 +211,7 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `xt=...` - everything possible in `s=`.
 
-`it=...` - only messages with specific tags (starred items in feed). NB: It's an extension to GR API
+`it=...` - only messages with specific tags (starred items in feed). NB: It's an extension to GR API.
 
 `ck=...` - ignored.
 
@@ -225,7 +225,7 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `n=...` - number of items. Default is 20, maximum is 50000.
 
-`includeAllDirectStreamIds=true` - add feed and tags for each item
+`includeAllDirectStreamIds=true` - add source feed, tags and smart streams for each item.
 
 Note that item ids are unique for one user but can overlap between users. Please use separate database for each account.
 
@@ -286,11 +286,11 @@ https://bazqux.com/reader/api/0/mark-all-as-read
 
 No more than 50000 items are marked at once.
 
-### Folder/tag renaming
+### Folder/tag/smart stream renaming
 
 https://bazqux.com/reader/api/0/rename-tag?s=user/-/label/Comics&dest=user/-/label/NiceComics
 
-### Folder/tag removing
+### Folder/tag/smart stream removing
 
 https://bazqux.com/reader/api/0/disable-tag?s=user/-/label/NiceComics
 
