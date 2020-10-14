@@ -203,17 +203,17 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `s=user/-/state/com.google/created` - empty results
 
-`s=user/-/label/...` for folders or tags
+`s=user/-/label/...` - folders or tags
 
 `s=feed/...`
 
-`r=o` for oldest first ranking.
+`r=o` - oldest first ranking.
 
 `xt=...` - everything possible in `s=`.
 
 `it=...` - only messages with specific tags (starred items in feed). NB: It's an extension to GR API
 
-`ck=...` is ignored.
+`ck=...` - ignored.
 
 `ot=...` - minimum download time in seconds. It's time after which item appeared in reader, not the published time. Please don't add it when you get unread items list (there are no 30 days limit on a number of unread items).
 
@@ -221,11 +221,11 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `ts=...` - maximum published time in μs (1e-6 seconds). This could be used in [mark-all-as-read](#marking-all-as-read) call to implement "Mark older than N days" feature.
 
-`c=...` continuation from previous request (it's just an item id and hence never expire).
+`c=...` - continuation from previous request (it's just an item id and hence never expire).
 
 `n=...` - number of items. Default is 20, maximum is 50000.
 
-`includeAllDirectStreamIds=true` return feed and tags for each item
+`includeAllDirectStreamIds=true` - add feed and tags for each item
 
 Note that item ids are unique for one user but can overlap between users. Please use separate database for each account.
 
