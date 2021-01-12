@@ -18,6 +18,50 @@ API implementation is tested and works with [Reeder](https://reederapp.com/),
 
 BazQux Reader also implements [Fever API](http://feedafever.com/api) ([local copy](FeverAPI.md)), which works in [Unread](https://www.goldenhillsoftware.com/unread/) and [ReadKit](https://readkitapp.com).
 
+### Warning!
+
+BazQux Reader does not automatically mark items as read
+after 30 days. So please don't add `ot=CurrentTime-30days`
+when you get unread items
+(`s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read`).
+You may miss some unread items this way.
+
+In general it's not right approach to use `ot`. Right way is to get [ids](#item-ids) of all, unread and starred items limited by `n=<number_of_items>` then remove items that are no longer exists, fetch new items and sync unread/starred state. Read more in the next section.
+
+### The Right Way to Sync
+
+I'm tired of seeing new apps that try to download `reading-list` stream, passing `ot` (or, even worse, download each feed with `ot` flag — do you know that user can have 3000 feeds?) and then wondering why it doesn't work.
+
+Few reasons why using `ot` is a **bad idea**:
+
+* User subscribed to a new feed and it has posts before `ot` in `reading-list` that you won't sync (please, do not sync 3000 feeds or sync this new feed separately to solve this).
+
+* User marked some 5 years old item (or even yesterday one) as unread. Oh, it's not in the `reading-list` or your feed filtered by `ot` again.
+
+* BazQux Reader does not automatically mark items as read after 30 days. If you add `ot=CurrentTime-30days` you will miss some items.
+
+* BazQux Reader removes old items from feeds to keep 500 last items per feed (to not blow up the database). So if you sync only new items you may get into situation when you will have items (in high volume feeds) in your app that are no longer in BazQux Reader.
+
+* And BazQux Reader has filters. Real filters that really hide items and not just mark them as read. And user could change filters at any time. So any item from the past could be removed or added to `reading-list` at any time. And you (and me) will get support request.
+
+How to do it right? Use [item IDs](#item-ids), Luke!
+
+General syncing process is:
+- Fetch [list of feeds and folders](#subscriptions-list).
+- Fetch [list of tags](#tag-list) (it contains folders too, so you need to remove folders found in previous call to get tags).
+- Fetch [ids](#item-ids) of unread items
+
+  https://bazqux.com/reader/api/0/stream/items/ids?output=json&s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read&n=1000
+- Fetch ids of starred items
+
+  https://bazqux.com/reader/api/0/stream/items/ids?output=json&s=user/-/state/com.google/starred&n=1000
+- Fetch tagged item ids by passing `s=user/-/label/TagName` parameter.
+- Remove items that are no longer in unread/starred/tagged ids lists from your local database.
+- Fetch [contents of items](#fetching-individual-items) missing in database.
+- Mark/unmark items read/starred/tagged in you app comparing local state and ids you've got from the BazQux.
+
+Use [edit-tag](#tagging-items) to sync read/starred/tagged status from your app to BazQux.
+
 ### Main API endpoints
 
 * https://bazqux.com/accounts/ClientLogin
@@ -28,14 +72,6 @@ Getting lists of all/unread items/ids in json/atom formats,
 marking items read/unread, starring, tagging,
 adding/removing/renaming of subscriptions,
 folders and tags (smart streams works like tags from API), custom subscriptions ordering -- everything is supported.
-
-### Warning!
-
-BazQux Reader does not automatically mark items as read
-after 30 days. So please don't add `ot=CurrentTime-30days`
-when you get unread items
-(`s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read`).
-You may miss some unread items this way.
 
 ### Login
 
@@ -215,7 +251,7 @@ https://bazqux.com/reader/api/0/stream/items/ids ([?output=json](https://bazqux.
 
 `ck=...` - ignored.
 
-`ot=...` - minimum download time in seconds. It's time after which item appeared in reader, not the published time. Please don't add it when you get unread items list (there are no 30 days limit on a number of unread items).
+`ot=...` - minimum download time in seconds. It's time after which item appeared in reader, not the published time. Please don't add it when you get unread items list (there are no 30 days limit on a number of unread items). Internally 180 seconds are subtracted from `ot` to take caching into account (since previous call may not return last few items due to caching). So you can get few items before `ot`. Please, [do not use `ot`](#warning). 
 
 `nt=...` - maximum download time in seconds.
 
@@ -236,6 +272,8 @@ https://bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://ba
 Pass all your [item ids](#about-item-ids) in `i=` parameters (like `i=item_id2&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
 
 No more than 1000 items at once.
+
+I suggest to fetch 50-100 items per call on mobile and 100-250 items per call on desktop. Fetching 1000 items at once may be a bit faster but requires more memory on mobile and syncing progress is less visible.
 
 ### About item ids
 
