@@ -42,7 +42,7 @@ Few reasons why using `ot` is a **bad idea**:
 
 * BazQux Reader removes old items from feeds to keep 500 last items per feed (to not blow up the database). So if you sync only new items you may get into situation when you will have items (in high volume feeds) in your app that are no longer in BazQux Reader.
 
-* And BazQux Reader has filters. Real filters that really hide items and not just mark them as read. And user could change filters at any time. So any item from the past could be removed or added to `reading-list` at any time. And you (and me) will get support request.
+* And BazQux Reader has filters. Real filters that really hide items (from both user and apps) instead of marking them as read. And user could change filters at any time. So any item from the past could be removed or added to the `reading-list` at any time and your app will miss them. And you (and me) will get a support request.
 
 How to do it right? Use [item IDs](#item-ids), Luke!
 
