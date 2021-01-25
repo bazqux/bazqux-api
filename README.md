@@ -44,6 +44,8 @@ Few reasons why using `ot` is a **bad idea**:
 
 * And BazQux Reader has filters. Real filters that really hide items (from both user and apps) instead of marking them as read. And user could change filters at any time. So any item from the past could be removed or added to the `reading-list` at any time and your app will miss them. And you (and me) will get a support request.
 
+* And what about starred items? User can unstar any item in the past. Please, don't download all starred items every time. Some users have >10k starred items.
+
 How to do it right? Use [item IDs](#item-ids), Luke!
 
 General syncing process is:
