@@ -30,7 +30,11 @@ In general it's not right approach to use `ot`. Right way is to get [ids](#item-
 
 ### The Right Way to Sync
 
-I'm tired of seeing new apps that try to download `reading-list` stream, passing `ot` (or, even worse, download each feed with `ot` flag — do you know that user can have 3000 feeds?) and then wondering why it doesn't work.
+Please, **DON'T "sync" by downloading each feed stream separately**. User can have 3000 feeds and most of them won't be updated every hour. That's almost 3k of completely unnecessary requests.
+
+Limiting amount of fetched items per feed with `n` option is very inefficient too. One feed can have 250 new items and another only 5 items from the whole last year. You either miss some articles or will download the same articles each "sync".
+
+And, please, **DON'T "sync" by downloading `reading-list` stream with `ot` option** (or, even worse, download each feed with `ot`). **It won't work!**
 
 Few reasons why using `ot` is a **bad idea**:
 
@@ -54,9 +58,13 @@ General syncing process is:
 - Fetch [ids](#item-ids) of unread items
 
   https://bazqux.com/reader/api/0/stream/items/ids?output=json&s=user/-/state/com.google/reading-list&xt=user/-/state/com.google/read&n=1000
+  
+  (user can easily have 1000000 unread items so, please, add a limit on how many articles you sync, 25000 could be a good default, customizable limit is even better). 
 - Fetch ids of starred items
 
   https://bazqux.com/reader/api/0/stream/items/ids?output=json&s=user/-/state/com.google/starred&n=1000
+  
+  (100k starred items are possible, so, please, limit them too, 10-25k limit is a good default)
 - Fetch tagged item ids by passing `s=user/-/label/TagName` parameter.
 - Remove items that are no longer in unread/starred/tagged ids lists from your local database.
 - Fetch [contents of items](#fetching-individual-items) missing in database.
