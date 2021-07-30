@@ -279,7 +279,7 @@ Note that item ids are unique for one user but can overlap between users. Please
 
 https://bazqux.com/reader/api/0/stream/items/contents ([?output=atom](https://bazqux.com/reader/api/0/stream/items/contents?output=atom))
 
-Pass all your [item ids](#about-item-ids) in `i=` parameters (like `i=item_id2&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
+Pass all your [item ids](#about-item-ids) in `i=` parameters (like `i=item_id1&i=item_id_2&...&i=item_id_N`) in HTTP POST request. Although it's possible to add them to URL I recommend POST to not bump into URL length limit.
 
 No more than 1000 items at once.
 
